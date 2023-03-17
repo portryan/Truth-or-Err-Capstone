@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthorErrCapstone">
         <activity
+            android:name=".Categories"
+            android:exported="false" />
+        <activity
+            android:name=".CreateCategory"
+            android:exported="false" />
+        <activity
+            android:name=".AnswerQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".CreateQuestion"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
