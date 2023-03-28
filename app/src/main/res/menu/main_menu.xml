@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_notifications"
+        android:orderInCategory="101"
+        android:title="Notifications" />
+    <item
+        android:id="@+id/action_personal_activity"
+        android:orderInCategory="102"
+        android:title="Personal Activity" />
+    <item
+        android:id="@+id/activity_friends"
+        android:orderInCategory="103"
+        android:title="Friends" />
+</menu>
