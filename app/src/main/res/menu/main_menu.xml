@@ -9,20 +9,24 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_home"
         android:orderInCategory="101"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="102"
         android:title="Settings"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_notifications"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="Notifications" />
     <item
         android:id="@+id/action_personal_activity"
-        android:orderInCategory="103"
+        android:orderInCategory="104"
         android:title="Personal Activity" />
     <item
         android:id="@+id/activity_friends"
-        android:orderInCategory="104"
+        android:orderInCategory="105"
         android:title="Friends" />
 </menu>
