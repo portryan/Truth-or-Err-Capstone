@@ -36,6 +36,6 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         ActionBar ab = getSupportActionBar();
-        ab.setTitle("Profile");
+        ab.setTitle("My Profile");
     }
 }
