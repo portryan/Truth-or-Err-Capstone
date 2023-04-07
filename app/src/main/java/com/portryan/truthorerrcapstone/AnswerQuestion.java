@@ -1,5 +1,6 @@
 package com.portryan.truthorerrcapstone;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -37,5 +38,8 @@ public class AnswerQuestion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer_question);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("Answer Question");
     }
 }

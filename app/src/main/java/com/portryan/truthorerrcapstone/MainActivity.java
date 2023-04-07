@@ -1,5 +1,6 @@
 package com.portryan.truthorerrcapstone;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("Main Menu");
         EditText searchText = (EditText)findViewById(R.id.searchText);
         Button createQuestionBtn = (Button)findViewById(R.id.createQuestionBtn);
         Button answerQuestionBtn = (Button)findViewById(R.id.answerQuestionBtn);

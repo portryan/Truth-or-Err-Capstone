@@ -1,5 +1,6 @@
 package com.portryan.truthorerrcapstone;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -37,5 +38,9 @@ public class CreateCategory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_category);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("Create Category");
+
     }
 }

@@ -10,10 +10,12 @@
         android:id="@+id/answerQuestionBtn"
         android:layout_width="180dp"
         android:layout_height="64dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
         android:text="Answer Question"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/createQuestionBtn"
         app:layout_constraintTop_toBottomOf="@+id/searchText" />
 
     <Button
@@ -21,7 +23,7 @@
         android:layout_width="180dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="60dp"
         android:text="Create Question"
         app:layout_constraintEnd_toStartOf="@+id/answerQuestionBtn"
         app:layout_constraintHorizontal_bias="0.0"
@@ -32,11 +34,13 @@
         android:id="@+id/categoriesBtn"
         android:layout_width="180dp"
         android:layout_height="64dp"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="16dp"
         android:text="Categories"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/createCategoryBtn"
         app:layout_constraintTop_toBottomOf="@+id/answerQuestionBtn"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -59,13 +63,28 @@
         style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="387dp"
         android:layout_height="46dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="Search"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createCategoryBtn"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/img_truthorerr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
