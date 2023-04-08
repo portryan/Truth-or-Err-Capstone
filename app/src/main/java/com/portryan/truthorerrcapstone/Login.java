@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
-
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +27,33 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO - Check if user exists
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
 
-                Intent intent = new Intent(Login.this, MainActivity.class);
+                DB = new DBHelper(Login.this);
+                Boolean testMatch = DB.userPasswordMatch(user,pass);
+
+                if (testMatch) {
+                    String fname = DB.getFirstName(user);
+                    String lname = DB.getLastName(user);
+                    String pronouns = DB.getPronouns(user);
+
+                    CurrentUser.init(user, fname, lname, pronouns);
+                    Toast.makeText(Login.this,"Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    startActivity(intent);
+                    finishAffinity();
+                }else{
+                    Toast.makeText(Login.this,"Account not found or wrong password", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, Signup.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

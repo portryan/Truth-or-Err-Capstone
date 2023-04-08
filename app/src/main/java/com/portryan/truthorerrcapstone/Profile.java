@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
 
@@ -39,14 +41,32 @@ public class Profile extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setTitle("My Profile");
 
+        TextView username = (TextView)findViewById(R.id.username);
+        TextView pronouns = (TextView)findViewById(R.id.pronouns);
+        username.setText(CurrentUser.getUsername());
+        pronouns.setText(CurrentUser.getPronouns());
+
         Button logoutButton = (Button)findViewById(R.id.logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO - logout user logic
-
+                CurrentUser.reset();
                 Intent intent = new Intent(Profile.this, Login.class);
                 startActivity(intent);
+                finishAffinity();
+            }
+        });
+
+        Button deleteAccountButton = (Button)findViewById(R.id.deleteOrDeactivateAccount);
+        deleteAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DBHelper DB = new DBHelper(Profile.this);
+                DB.deleteUser(CurrentUser.getUsername());
+                CurrentUser.reset();
+                Intent intent = new Intent(Profile.this, Login.class);
+                startActivity(intent);
+                finishAffinity();
             }
         });
 
