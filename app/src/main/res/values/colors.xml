@@ -10,4 +10,5 @@
     <color name="gray">#808080</color>
     <color name="darkPurple">#000b69</color>
     <color name="lightPurple">#9a66fe</color>
+    <color name="danger">#ff9b77</color>
 </resources>

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class Profile extends AppCompatActivity {
 
@@ -34,8 +36,20 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         ActionBar ab = getSupportActionBar();
         ab.setTitle("My Profile");
+
+        Button logoutButton = (Button)findViewById(R.id.logout);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO - logout user logic
+
+                Intent intent = new Intent(Profile.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
