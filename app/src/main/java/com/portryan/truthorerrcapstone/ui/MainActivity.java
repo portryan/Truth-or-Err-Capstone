@@ -1,4 +1,4 @@
-package com.portryan.truthorerrcapstone;
+package com.portryan.truthorerrcapstone.ui;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
+import com.portryan.truthorerrcapstone.R;
 
 public class MainActivity extends AppCompatActivity {
 

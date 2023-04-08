@@ -1,17 +1,20 @@
-package com.portryan.truthorerrcapstone;
+package com.portryan.truthorerrcapstone.ui;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.portryan.truthorerrcapstone.CurrentUser;
+import com.portryan.truthorerrcapstone.DBHelper;
+import com.portryan.truthorerrcapstone.R;
 
 public class Profile extends AppCompatActivity {
 

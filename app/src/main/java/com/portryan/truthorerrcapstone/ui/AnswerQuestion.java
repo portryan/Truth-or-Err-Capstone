@@ -1,4 +1,4 @@
-package com.portryan.truthorerrcapstone;
+package com.portryan.truthorerrcapstone.ui;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class CreateCategory extends AppCompatActivity {
+import com.portryan.truthorerrcapstone.R;
+
+public class AnswerQuestion extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -24,10 +26,12 @@ public class CreateCategory extends AppCompatActivity {
             case R.id.action_profile:
                 Intent intent = new Intent(this, Profile.class);
                 startActivity(intent);
+                finish();
                 return true;
             case R.id.action_home:
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                finishAffinity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -37,10 +41,9 @@ public class CreateCategory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_category);
+        setContentView(R.layout.activity_answer_question);
 
         ActionBar ab = getSupportActionBar();
-        ab.setTitle("Create Category");
-
+        ab.setTitle("Answer Question");
     }
 }

@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthorErrCapstone">
         <activity
-            android:name=".Signup"
+            android:name=".ui.Signup"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".ui.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,22 +22,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Categories"
+            android:name=".ui.Categories"
             android:exported="false" />
         <activity
-            android:name=".CreateCategory"
+            android:name=".ui.CreateCategory"
             android:exported="false" />
         <activity
-            android:name=".AnswerQuestion"
+            android:name=".ui.AnswerQuestion"
             android:exported="false" />
         <activity
-            android:name=".CreateQuestion"
+            android:name=".ui.CreateQuestion"
             android:exported="false" />
         <activity
-            android:name=".Profile"
+            android:name=".ui.Profile"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false"></activity>
     </application>
 

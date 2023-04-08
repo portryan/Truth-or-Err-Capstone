@@ -1,4 +1,4 @@
-package com.portryan.truthorerrcapstone;
+package com.portryan.truthorerrcapstone.ui;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.portryan.truthorerrcapstone.CurrentUser;
+import com.portryan.truthorerrcapstone.DBHelper;
+import com.portryan.truthorerrcapstone.R;
 
 public class Login extends AppCompatActivity {
     DBHelper DB;
@@ -22,13 +26,15 @@ public class Login extends AppCompatActivity {
         Button signupButton = (Button)findViewById(R.id.button_signup);
 
         ActionBar ab = getSupportActionBar();
-        ab.setTitle("Login - Sign Up");
+        ab.setTitle("Login");
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
+
+                //TODO - Hash password
 
                 DB = new DBHelper(Login.this);
                 Boolean testMatch = DB.userPasswordMatch(user,pass);
