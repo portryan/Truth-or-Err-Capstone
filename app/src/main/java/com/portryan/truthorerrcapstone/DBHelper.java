@@ -22,14 +22,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create table Users(username TEXT primary key, password TEXT, firstname TEXT, lastname Text, pronouns TEXT)");
+        DB.execSQL("create table Users(username TEXT primary key, password TEXT, firstname TEXT, lastname Text, pronouns TEXT, points INTEGER)");
         DB.execSQL("create table Categories(name TEXT primary key, username TEXT, foreign key (username) references Users(username))");
+        DB.execSQL("create table Questions(id INTEGER primary key autoincrement, username TEXT, title TEXT, answer1 TEXT, answer2 TEXT, answer3 TEXT, answer4 TEXT, correctanswer INTEGER, foreign key (username) references Users(username))");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
         DB.execSQL("drop table if exists Users");
         DB.execSQL("drop table if exists Categories");
+        DB.execSQL("drop table if exists Questions");
     }
 
     public boolean addUser(String username, String pass, String fname, String lname, String pronouns){
@@ -40,6 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("firstname",fname);
         contentValues.put("lastname",lname);
         contentValues.put("pronouns",pronouns);
+        contentValues.put("points", 1000);
         long result = DB.insert("Users",null,contentValues);
         if (result == -1){
             return false;
@@ -100,6 +103,14 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = DB.rawQuery("Select pronouns from Users where username = ?",new String[]{username});
         cursor.moveToFirst();
         return cursor.getString(cursor.getColumnIndex("pronouns"));
+    }
+
+    @SuppressLint("Range")
+    public int getPoints(String username){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor = DB.rawQuery("Select points from Users where username = ?",new String[]{username});
+        cursor.moveToFirst();
+        return cursor.getInt(cursor.getColumnIndex("points"));
     }
 
     public boolean addCategory(String categoryName, String user){

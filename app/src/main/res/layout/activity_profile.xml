@@ -34,19 +34,19 @@
         android:text="Username"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/pronouns"
+        app:layout_constraintBottom_toTopOf="@+id/points"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
     <TextView
-        android:id="@+id/pronouns"
+        android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
         android:layout_marginEnd="167dp"
         android:layout_marginBottom="41dp"
-        android:text="Pronouns"
+        android:text="Points: "
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/changeUsername"
@@ -64,7 +64,7 @@
         app:layout_constraintBottom_toTopOf="@+id/settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pronouns" />
+        app:layout_constraintTop_toBottomOf="@+id/points" />
 
     <Button
         android:id="@+id/settings"

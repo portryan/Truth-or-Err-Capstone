@@ -45,9 +45,9 @@ public class Profile extends AppCompatActivity {
         ab.setTitle("My Profile");
 
         TextView username = (TextView)findViewById(R.id.username);
-        TextView pronouns = (TextView)findViewById(R.id.pronouns);
+        TextView points = (TextView)findViewById(R.id.points);
         username.setText(CurrentUser.getUsername());
-        pronouns.setText(CurrentUser.getPronouns());
+        points.setText("Points: " + Integer.toString(CurrentUser.getPoints()));
 
         Button logoutButton = (Button)findViewById(R.id.logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
