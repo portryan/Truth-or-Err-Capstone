@@ -6,30 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".ui.Friends">
 
-    <TextView
-        android:id="@+id/suggested"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="87dp"
-        android:layout_marginBottom="167dp"
-        android:text="Suggested"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+    <EditText
+        android:id="@+id/searchText"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:hint="Search"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/suggested"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/suggested"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
+        android:text="Suggested"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/contacts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchText" />
+
+    <TextView
         android:id="@+id/contacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="243dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="70dp"
         android:text="From Your Contacts:"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/suggested" />
 
     <TextView
         android:id="@+id/friends"
@@ -38,24 +57,26 @@
         android:layout_marginBottom="11dp"
         android:text="My Friends:"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="392dp"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="63dp"
         android:text="Friend"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/suggested" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="0dp"
         android:text="Friend"
         app:layout_constraintBottom_toTopOf="@+id/button4"
@@ -65,8 +86,9 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
         android:text="Friend"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="@+id/button5"
@@ -75,10 +97,10 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="72dp"
         android:text="Friend"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +115,17 @@
         app:layout_constraintBottom_toTopOf="@+id/friends"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/friends"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/contacts" />
+
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/img_avatar"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suggested" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
