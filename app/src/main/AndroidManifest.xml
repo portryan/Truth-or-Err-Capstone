@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthorErrCapstone">
         <activity
+            android:name=".Friends"
+            android:exported="false" />
+        <activity
             android:name=".ui.Signup"
             android:exported="false" />
         <activity
@@ -38,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
