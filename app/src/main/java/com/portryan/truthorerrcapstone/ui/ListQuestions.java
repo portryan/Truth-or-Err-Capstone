@@ -3,6 +3,7 @@ package com.portryan.truthorerrcapstone.ui;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -45,6 +47,7 @@ public class ListQuestions extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +58,7 @@ public class ListQuestions extends AppCompatActivity {
         LinearLayout LL = (LinearLayout) findViewById(R.id.listQuestions_LL);
 
         DBHelper DB = new DBHelper(this);
-        Cursor list = DB.getQuestions();
+        Cursor list = DB.getQuestions(); // TODO exclude questions already answered
         int qCount = list.getCount();
         TextView[] questionsArray = new TextView[qCount];
         int count = 0;
@@ -69,18 +72,35 @@ public class ListQuestions extends AppCompatActivity {
             tv.setText("Title: " + title + "\nCategory: " + category + "\nPoints: " + points + "\nAuthor: " + author + "\n");
             tv.setTextColor(Color.WHITE);
             if (count % 2 == 0){
-                // TODO Set color
+                // TODO Set color (static color)
                 //tv.setBackgroundColor(getResources().getColor(R.color.darkPurple));
             }else{
-                // TODO Set color
+                // TODO Set color (static color)
                 //tv.setBackgroundColor(getResources().getColor(R.color.lightPurple));
             }
             tv.setTextSize(24);
             tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+            tv.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                        //TODO set color (on click)
+                        //tv.setBackgroundColor(getResources().getColor(R.color.lightPurple));
+                    }else if (motionEvent.getAction() == MotionEvent.ACTION_UP){
+                        // TODO set color (on click)
+                        //tv.setBackgroundColor(getResources().getColor(R.color.darkPurple));
+                    }
+                    return false;
+                }
+            });
+
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // TODO Go to question page
+                    Intent intent = new Intent(ListQuestions.this, AnswerQuestion.class);
+                    intent.putExtra("questionID", questionID);
+                    startActivity(intent);
                 }
             });
             questionsArray[count] = tv;

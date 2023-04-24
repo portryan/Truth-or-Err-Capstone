@@ -34,6 +34,12 @@ public class CurrentUser {
 
     public static int getPoints(){ return points;}
 
+    public static void updatePoints(int pts){
+        points += pts;
+        if (points < 0){
+            points = 0;
+        }
+    }
     public static void reset(){
         username = null;
         firstName = null;
@@ -41,6 +47,4 @@ public class CurrentUser {
         pronouns = null;
         points = 0;
     }
-
-
 }

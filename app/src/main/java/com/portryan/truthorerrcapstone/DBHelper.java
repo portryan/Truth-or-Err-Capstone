@@ -113,6 +113,26 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor.getInt(cursor.getColumnIndex("points"));
     }
 
+    @SuppressLint("Range")
+    public boolean updatePoints(String username){
+        int pts = CurrentUser.getPoints();
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("points",pts);
+        Cursor cursor = DB.rawQuery("Select points from Users where username = ?", new String[]{username});
+        if (cursor.getCount() > 0){
+            long result = DB.update("Users", contentValues, "username=?", new String[]{username});
+            if (result == -1){
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            return false;
+        }
+
+    }
+
     public boolean addCategory(String categoryName, String user){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -152,9 +172,15 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getQuestions(){
+    public Cursor getQuestions(){ // TODO exclude questions already answered
         SQLiteDatabase DB = this.getReadableDatabase();
         Cursor cursor = DB.rawQuery("Select * from Questions", null);
+        return cursor;
+    }
+
+    public Cursor getQuestionByID(int qID){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Questions where id = ?", new String[]{Integer.toString(qID)});
         return cursor;
     }
 }
