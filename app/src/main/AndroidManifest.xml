@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthorErrCapstone">
         <activity
-            android:name=".Friends"
+            android:name=".ui.ListQuestions"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Friends"
             android:exported="false" />
         <activity
             android:name=".ui.Signup"

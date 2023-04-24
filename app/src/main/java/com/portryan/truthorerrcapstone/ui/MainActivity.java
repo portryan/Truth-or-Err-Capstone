@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         answerQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AnswerQuestion.class);
+                Intent intent = new Intent(MainActivity.this, ListQuestions.class);
                 startActivity(intent);
             }
         });

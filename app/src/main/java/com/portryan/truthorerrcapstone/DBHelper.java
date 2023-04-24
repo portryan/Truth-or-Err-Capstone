@@ -151,5 +151,11 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public Cursor getQuestions(){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Questions", null);
+        return cursor;
+    }
 }
 
