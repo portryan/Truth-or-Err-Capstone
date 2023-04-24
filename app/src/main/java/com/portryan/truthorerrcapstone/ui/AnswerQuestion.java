@@ -78,6 +78,10 @@ public class AnswerQuestion extends AppCompatActivity implements View.OnClickLis
         Button answer2Button = (Button) findViewById(R.id.answer2_button);
         Button answer3Button = (Button) findViewById(R.id.answer3_button);
         Button answer4Button = (Button) findViewById(R.id.answer4_button);
+        answer1Button.setTransformationMethod(null);
+        answer2Button.setTransformationMethod(null);
+        answer3Button.setTransformationMethod(null);
+        answer4Button.setTransformationMethod(null);
 
         usernameField.setText(username + "'s Question");
         pointsField.setText("± " + points + " Points");
