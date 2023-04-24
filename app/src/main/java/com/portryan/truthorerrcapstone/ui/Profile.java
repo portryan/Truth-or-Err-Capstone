@@ -32,6 +32,11 @@ public class Profile extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_friends:
+                intent = new Intent(this, Friends.class);
+                startActivity(intent);
+                finishAffinity();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -24,11 +24,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) { // TODO this can probably be done a better way (currently adding navigation to each menu option manually for every page)
         switch (item.getItemId()) {
             case R.id.action_profile:
                 Intent intent = new Intent(this, Profile.class);
                 startActivity(intent);
+                return true;
+            case R.id.action_friends:
+                intent = new Intent(this, Friends.class);
+                startActivity(intent);
+                finishAffinity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

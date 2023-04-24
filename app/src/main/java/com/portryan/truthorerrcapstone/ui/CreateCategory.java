@@ -41,6 +41,11 @@ public class CreateCategory extends AppCompatActivity {
                 startActivity(intent);
                 finishAffinity();
                 return true;
+            case R.id.action_friends:
+                intent = new Intent(this, Friends.class);
+                startActivity(intent);
+                finishAffinity();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
