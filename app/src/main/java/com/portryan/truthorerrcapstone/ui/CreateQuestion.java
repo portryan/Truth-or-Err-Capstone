@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,10 +14,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.portryan.truthorerrcapstone.DBHelper;
 import com.portryan.truthorerrcapstone.R;
 
-public class CreateQuestion extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CreateQuestion extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,20 +56,32 @@ public class CreateQuestion extends AppCompatActivity implements AdapterView.OnI
 
         ActionBar ab = getSupportActionBar();
         ab.setTitle("Create Question");
+        Spinner selectCategorySpinner = (Spinner)findViewById(R.id.category_dropdown);
+
+        List<String> categories = new ArrayList<String>();
+        categories.add("Select Category");
+        DBHelper DB = new DBHelper(CreateQuestion.this);
+        Cursor list = DB.getCategories();
+        while (list.moveToNext()){
+            categories.add(list.getString(0));
+        }
+        ArrayAdapter<String> adp = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categories);
+        adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        selectCategorySpinner.setAdapter(adp);
+
+        selectCategorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ((TextView) adapterView.getChildAt(0)).setTextColor(Color.WHITE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
         Spinner correctAnswerSpinner = (Spinner)findViewById(R.id.correct_dropdown);
-        String[] ansNums = getResources().getStringArray(R.array.correctAnswerNumbers);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, ansNums);
-        correctAnswerSpinner.setPrompt("TEst");
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 }
