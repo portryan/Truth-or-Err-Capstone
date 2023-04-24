@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL("create table Users(username TEXT primary key, password TEXT, firstname TEXT, lastname Text, pronouns TEXT, points INTEGER)");
         DB.execSQL("create table Categories(name TEXT primary key, username TEXT, foreign key (username) references Users(username))");
-        DB.execSQL("create table Questions(id INTEGER primary key autoincrement, username TEXT, title TEXT, answer1 TEXT, answer2 TEXT, answer3 TEXT, answer4 TEXT, correctanswer INTEGER, foreign key (username) references Users(username))");
+        DB.execSQL("create table Questions(id INTEGER primary key autoincrement, username TEXT, title TEXT, category TEXT, points INTEGER, answer1 TEXT, answer2 TEXT, answer3 TEXT, answer4 TEXT, correctanswer INTEGER, foreign key (username) references Users(username), foreign key (category) references Categories(name))");
     }
 
     @Override
@@ -130,6 +130,26 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getReadableDatabase();
         Cursor cursor = DB.rawQuery("Select * from Categories",null);
         return cursor;
+    }
+
+    public boolean addQuestion(String user, String title, String category, int points, String ans1, String ans2, String ans3, String ans4, int correctAns){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username",user);
+        contentValues.put("title",title);
+        contentValues.put("category", category);
+        contentValues.put("points", points);
+        contentValues.put("answer1", ans1);
+        contentValues.put("answer2", ans2);
+        contentValues.put("answer3", ans3);
+        contentValues.put("answer4", ans4);
+        contentValues.put("correctanswer", correctAns);
+        long result = DB.insert("Questions", null, contentValues);
+        if (result == -1){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
 
