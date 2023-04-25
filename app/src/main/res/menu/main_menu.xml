@@ -13,11 +13,6 @@
         android:title="Profile"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="102"
-        android:title="Settings"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_notifications"
         android:orderInCategory="103"
         android:title="Notifications" />
