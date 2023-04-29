@@ -2,14 +2,16 @@ package com.portryan.truthorerrcapstone;
 
 public class CurrentUser {
     private static String username;
+    private static int id;
     private static String firstName;
     private static String lastName;
     private static String pronouns;
 
     private static int points;
 
-    public static void init(String user, String first, String last, String pn, int pts){
+    public static void init(int userId, String user, String first, String last, String pn, int pts){
         username = user;
+        id = userId;
         firstName = first;
         lastName = last;
         pronouns = pn;
@@ -18,6 +20,10 @@ public class CurrentUser {
 
     public static String getUsername(){
         return username;
+    }
+
+    public static int getId(){
+        return id;
     }
 
     public static String getFirstName(){

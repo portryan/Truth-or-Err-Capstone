@@ -40,12 +40,13 @@ public class Login extends AppCompatActivity {
                 Boolean testMatch = DB.userPasswordMatch(user,pass);
 
                 if (testMatch) {
+                    int id = DB.getUserId(user);
                     String fname = DB.getFirstName(user);
                     String lname = DB.getLastName(user);
                     String pronouns = DB.getPronouns(user);
                     int points = DB.getPoints(user);
 
-                    CurrentUser.init(user, fname, lname, pronouns, points);
+                    CurrentUser.init(id, user, fname, lname, pronouns, points);
                     Toast.makeText(Login.this,"Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);

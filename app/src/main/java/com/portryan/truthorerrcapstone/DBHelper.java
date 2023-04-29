@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create table Users(username TEXT primary key, password TEXT, firstname TEXT, lastname Text, pronouns TEXT, points INTEGER)");
+        DB.execSQL("create table Users(id INTEGER primary key autoincrement, username TEXT, password TEXT, firstname TEXT, lastname Text, pronouns TEXT, points INTEGER)");
         DB.execSQL("create table Categories(name TEXT primary key, username TEXT, foreign key (username) references Users(username))");
         DB.execSQL("create table Questions(id INTEGER primary key autoincrement, username TEXT, title TEXT, category TEXT, points INTEGER, answer1 TEXT, answer2 TEXT, answer3 TEXT, answer4 TEXT, correctanswer INTEGER, foreign key (username) references Users(username), foreign key (category) references Categories(name))");
     }
@@ -79,6 +79,13 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             return false;
         }
+    }
+    @SuppressLint("Range")
+    public int getUserId(String username){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor = DB.rawQuery("Select id from Users where username = ?",new String[]{username});
+        cursor.moveToFirst();
+        return cursor.getInt(cursor.getColumnIndex("id"));
     }
 
     @SuppressLint("Range")
