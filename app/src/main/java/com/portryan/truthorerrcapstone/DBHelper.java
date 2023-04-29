@@ -25,6 +25,8 @@ public class DBHelper extends SQLiteOpenHelper {
         DB.execSQL("create table Users(id INTEGER primary key autoincrement, username TEXT, password TEXT, firstname TEXT, lastname Text, pronouns TEXT, points INTEGER)");
         DB.execSQL("create table Categories(name TEXT primary key, username TEXT, foreign key (username) references Users(username))");
         DB.execSQL("create table Questions(id INTEGER primary key autoincrement, username TEXT, title TEXT, category TEXT, points INTEGER, answer1 TEXT, answer2 TEXT, answer3 TEXT, answer4 TEXT, correctanswer INTEGER, foreign key (username) references Users(username), foreign key (category) references Categories(name))");
+        DB.execSQL("create table Friends(user1 INTEGER, user2 INTEGER, foreign key (user1) references Users(id), foreign key (user2) references Users(id))");
+
     }
 
     @Override
@@ -32,6 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
         DB.execSQL("drop table if exists Users");
         DB.execSQL("drop table if exists Categories");
         DB.execSQL("drop table if exists Questions");
+        DB.execSQL("drop table if exists Friends");
     }
 
     public boolean addUser(String username, String pass, String fname, String lname, String pronouns){
@@ -84,8 +87,22 @@ public class DBHelper extends SQLiteOpenHelper {
     public int getUserId(String username){
         SQLiteDatabase DB = this.getReadableDatabase();
         Cursor cursor = DB.rawQuery("Select id from Users where username = ?",new String[]{username});
+        if (cursor.getCount() < 1){
+            return -1;
+        }
         cursor.moveToFirst();
         return cursor.getInt(cursor.getColumnIndex("id"));
+    }
+
+    @SuppressLint("Range")
+    public String getUserById(int id){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor = DB.rawQuery("Select username from Users where id = ?",new String[]{Integer.toString(id)});
+        if (cursor.getCount() < 1){
+            return "";
+        }
+        cursor.moveToFirst();
+        return cursor.getString(cursor.getColumnIndex("username"));
     }
 
     @SuppressLint("Range")
@@ -188,6 +205,29 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getQuestionByID(int qID){
         SQLiteDatabase DB = this.getReadableDatabase();
         Cursor cursor = DB.rawQuery("Select * from Questions where id = ?", new String[]{Integer.toString(qID)});
+        return cursor;
+    }
+
+    public boolean addFriends(int user1, int user2){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Friends where user1 = ? and user2 = ?", new String[]{Integer.toString(user1), Integer.toString(user2)});
+        if (cursor.getCount() > 0){
+            return false;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("user1", user1);
+        contentValues.put("user2", user2);
+        long result = DB.insert("Friends", null, contentValues);
+        if (result == -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public Cursor getFriends(int userId){
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor = DB.rawQuery("Select user1 from Friends where user2 = ? UNION Select user2 from Friends where user1 = ?", new String[]{Integer.toString(userId), Integer.toString(userId)});
         return cursor;
     }
 }
