@@ -100,14 +100,24 @@ public class Friends extends AppCompatActivity {
         }
         LinearLayout LL = (LinearLayout) findViewById(R.id.friendsList_layout);
         LL.removeAllViews();
-        for (int i = 0; i < friendsNames.size(); i++){
-            Button b = new Button(this);
-            b.setText(friendsNames.get(i));
-            b.setTextColor(Color.WHITE);
-            b.setBackgroundTintList(this.getResources().getColorStateList(R.color.lightPurple));
-            b.setLayoutParams(new LinearLayout.LayoutParams(1000, LinearLayout.LayoutParams.WRAP_CONTENT));
-            b.setTransformationMethod(null);
-            LL.addView(b);
+
+        if (friendsNames.size() == 0){
+            TextView tv = new TextView(this);
+            tv.setText("\nNo friends :(");
+            tv.setTextColor(Color.WHITE);
+            tv.setTextSize(24);
+            tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            LL.addView(tv);
+        }else {
+            for (int i = 0; i < friendsNames.size(); i++) {
+                Button b = new Button(this);
+                b.setText(friendsNames.get(i));
+                b.setTextColor(Color.WHITE);
+                b.setBackgroundTintList(this.getResources().getColorStateList(R.color.lightPurple));
+                b.setLayoutParams(new LinearLayout.LayoutParams(1000, LinearLayout.LayoutParams.WRAP_CONTENT));
+                b.setTransformationMethod(null);
+                LL.addView(b);
+            }
         }
     }
 }
