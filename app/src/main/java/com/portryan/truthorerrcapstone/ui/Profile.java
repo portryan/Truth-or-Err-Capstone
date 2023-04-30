@@ -54,6 +54,16 @@ public class Profile extends AppCompatActivity {
         username.setText(CurrentUser.getUsername());
         points.setText("Points: " + Integer.toString(CurrentUser.getPoints()));
 
+        Button settingsButton = (Button) findViewById(R.id.settings);
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Profile.this, Settings.class);
+                startActivity(intent);
+            }
+        });
+
         Button logoutButton = (Button)findViewById(R.id.logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

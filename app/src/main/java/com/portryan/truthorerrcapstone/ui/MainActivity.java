@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_friends:
                 intent = new Intent(this, Friends.class);
                 startActivity(intent);
-                finishAffinity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
