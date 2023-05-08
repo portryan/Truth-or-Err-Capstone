@@ -24,4 +24,53 @@
     <string-array name="categoriesList">
         <item>Select Category</item>
     </string-array>
+
+    <string name="faqText">Welcome to the FAQs for the Truth or Err app! Below you\'ll find answers to some common questions regarding login, password changes, profile, and general information about the app.\n\n
+        <b><u>Login Questions:</u></b>\n\n
+
+Q: How do I log in to the Truth or Err app?\n
+A: To log in, simply open the app and enter your registered email and password on the login page.\n\n
+
+Q: What do I do if I can\'t remember my password?\n
+A: You can reset your password by clicking on the "Forgot Password" link on the settings page under Account. Follow the instructions to reset your password.\n\n
+
+Q: Can I change my login email?\n
+A: Yes, you can change your email by contacting our support team through the app\'s Help page in settings.\n\n
+
+        <b><u>Password Changes:</u></b>\n\n
+
+Q: How do I change my password?\n
+A: To change your password, go to your account settings and click on the "Change Password" button. Enter your current password, then your new password, and confirm the new password.\n\n
+
+Q: How often should I change my password?\n
+A: We recommend changing your password every three months for security reasons.\n\n
+
+Q: What are the password requirements?\n
+A: Your password must be at least eight characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.\n\n
+
+        <b><u>About Truth or Err App:</u></b>\n\n
+
+Q: What is Truth or Err app?\n
+A: Truth or Err is a fun and engaging app that lets you test your knowledge on a variety of topics. You can choose from different categories such as history, science, pop culture, and more.\n\n
+
+Q: Is the Truth or Err app free?\n
+A: Yes, the app is free to download and use.\n\n
+
+Q: Can I play the Truth or Err app with friends?\n
+A: Yes, you can play the app with friends by adding friends, sending friend requests, and challenging your friends as well.\n\n
+Q: Is there a limit to the number of friends I can add?\n
+A: No, there is no limit to the number of friends you can add to the app.\n\n
+
+        <b><u>Deleting Your Account:</u></b>\n\n
+
+Q: How do I delete my Truth or Err account?\n
+A: To delete your account, go to your profile page and click on the "Delete Account" button. You will then be asked to confirm the deletion.\n\n
+
+Q: Will deleting my account delete all my data?\n
+A: Yes, deleting your account will delete all your data, including your score, history, and friend list.\n\n
+
+Q: Can I recover my account after deleting it?\n
+A: No, once you delete your account, it cannot be recovered.\n\n
+We hope these answers have been helpful! If you have any other questions or concerns, please contact our support team through the app\'s Help page found under settings.\n
+    </string>
 </resources>
