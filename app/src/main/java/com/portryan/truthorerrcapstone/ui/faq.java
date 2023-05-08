@@ -27,6 +27,10 @@ public class faq extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_profile:
+                intent = new Intent(this, Profile.class);
+                startActivity(intent);
+                return true;
             case R.id.action_friends:
                 intent = new Intent(this, Friends.class);
                 startActivity(intent);
