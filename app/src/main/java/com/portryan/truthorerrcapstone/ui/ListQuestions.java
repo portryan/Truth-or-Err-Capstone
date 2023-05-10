@@ -76,26 +76,12 @@ public class ListQuestions extends AppCompatActivity {
             TextView tv = new TextView(this);
             tv.setText("Title: " + title + "\nCategory: " + category + "\nPoints: " + points + "\nAuthor: " + author + "\n");
             tv.setTextColor(Color.WHITE);
-            if (count % 2 == 0){
-                // TODO Set color (static color)
-                //tv.setBackgroundColor(getResources().getColor(R.color.darkPurple));
-            }else{
-                // TODO Set color (static color)
-                //tv.setBackgroundColor(getResources().getColor(R.color.lightPurple));
-            }
             tv.setTextSize(24);
             tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
             tv.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
-                        //TODO set color (on click)
-                        //tv.setBackgroundColor(getResources().getColor(R.color.lightPurple));
-                    }else if (motionEvent.getAction() == MotionEvent.ACTION_UP){
-                        // TODO set color (on click)
-                        //tv.setBackgroundColor(getResources().getColor(R.color.darkPurple));
-                    }
                     return false;
                 }
             });

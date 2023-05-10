@@ -116,7 +116,7 @@ public class CreateQuestion extends AppCompatActivity{
                 }else{
                     try{
                         points = Integer.parseInt(pointsField.getText().toString());
-                        if (points < 0 || points > 500) { // TODO change max point limit?
+                        if (points < 0 || points > 500) {
                             errorCount++;
                         }
                     }catch (Exception e){
